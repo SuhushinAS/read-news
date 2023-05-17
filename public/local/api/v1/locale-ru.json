@@ -2,6 +2,9 @@
   "example.item.description": "Описание примера элемента",
   "example.list.description": "Описание примера списка",
   "example.list.title": "Пример списка",
+  "feed.item.description": "Описание ленты",
+  "feed.list.description": "Описание списка лент",
+  "feed.list.title": "Список лент",
   "footer.power.title": "Сделано в",
   "home.description": "Описание главной",
   "home.title": "Главная"

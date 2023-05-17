@@ -1,4 +1,4 @@
-#ReactStarterKit
+#ReadNews
 
 ## Как использовать
 

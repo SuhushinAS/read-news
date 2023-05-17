@@ -2,6 +2,9 @@
   "example.item.description": "Example item description",
   "example.list.description": "Example list description",
   "example.list.title": "Example list",
+  "feed.item.description": "Feed item description",
+  "feed.list.description": "Feed list description",
+  "feed.list.title": "Feed list",
   "footer.power.title": "Powered by",
   "home.description": "Home description",
   "home.title": "Home"

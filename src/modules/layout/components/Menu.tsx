@@ -20,6 +20,11 @@ export class Menu extends React.Component<TMenuProps> {
         name: 'Example',
         path: '/example',
       },
+      {
+        id: 'feed',
+        name: 'Feed',
+        path: '/feed',
+      },
     ],
   };
 

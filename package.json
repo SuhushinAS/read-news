@@ -23,7 +23,7 @@
     "redux": "^4.2.0",
     "reselect": "^4.1.7"
   },
-  "description": "reactStarterKit",
+  "description": "readNews",
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.2",
@@ -85,7 +85,7 @@
     }
   },
   "keywords": [
-    "reactStarterKit"
+    "readNews"
   ],
   "license": "UNLICENSED",
   "lint-staged": {
@@ -96,11 +96,11 @@
       "eslint --fix"
     ]
   },
-  "name": "react-starter-kit",
+  "name": "read-news",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git@github.com:SuhushinAS/react-starter-kit.git"
+    "url": "git@github.com:SuhushinAS/read-news.git"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress --mode=production",
