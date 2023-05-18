@@ -12,5 +12,5 @@ export const selectFeedIdList = (state: TState): string[] => selectFeed(state).l
 
 export const selectFeedList = createSelector([selectFeedData, selectFeedIdList], getList);
 
-type SelectFeedItem = (src: string) => (state: TState) => TFeed;
-export const selectFeedItem: SelectFeedItem = (src) => (state) => selectFeedData(state)[src];
+type SelectFeedItem = (id: string) => (state: TState) => TFeed;
+export const selectFeedItem: SelectFeedItem = (id) => (state) => selectFeedData(state)[id];
