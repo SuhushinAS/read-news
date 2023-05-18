@@ -1,5 +1,9 @@
 import {TDispatch} from 'app/types';
 
+export type TApiResponse<Data> = {
+  data: Data;
+};
+
 export type TItem = {
   id: string;
 };

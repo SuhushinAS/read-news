@@ -37,8 +37,6 @@ export const FeedList = () => {
       <tbody>
         {list.map((item) => {
           const itemId = getFeedId(item);
-          const encodeItemId = btoa(itemId);
-          console.log({encodeItemId, itemId});
 
           return (
             <tr key={item[feedIdKey]}>
