@@ -5,6 +5,9 @@
   "feed.item.description": "Описание ленты",
   "feed.list.description": "Описание списка лент",
   "feed.list.title": "Список лент",
+  "feed.src.label": "Источник",
+  "feed.title.label": "Название",
+  "form.action.save": "Сохранить",
   "footer.power.title": "Сделано в",
   "home.description": "Описание главной",
   "home.title": "Главная"

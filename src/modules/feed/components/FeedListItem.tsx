@@ -13,6 +13,10 @@ type Props = {
 export const FeedListItem = ({feedId}: Props) => {
   const feed = useAppSelector(selectFeedItem(feedId));
 
+  if ('undefined' === typeof feed) {
+    return null;
+  }
+
   return (
     <tr>
       {feedFields.map((field) => (

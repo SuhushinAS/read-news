@@ -13,7 +13,7 @@ const fields: Array<keyof TExample> = ['name', 'email', 'age', 'balance'];
 
 export const ExampleList = () => {
   const list = useAppSelector(selectExampleList);
-  const load = useAppSelector(selectLoadItem(example.actions.getList.type));
+  const load = useAppSelector(selectLoadItem(example.actions.setList.type));
 
   if ('undefined' === typeof load) {
     return null;

@@ -9,7 +9,11 @@ import {useParams} from 'react-router-dom';
 
 export const FeedPageItem = () => {
   const {feedId = ''} = useParams();
-  const feed = useAppSelector(selectFeedItem(feedId)) || {};
+  const feed = useAppSelector(selectFeedItem(feedId));
+
+  if ('undefined' === typeof feed) {
+    return null;
+  }
 
   return (
     <div>

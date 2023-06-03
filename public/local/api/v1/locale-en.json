@@ -5,6 +5,9 @@
   "feed.item.description": "Feed item description",
   "feed.list.description": "Feed list description",
   "feed.list.title": "Feed list",
+  "feed.src.label": "Source",
+  "feed.title.label": "Title",
+  "form.action.save": "Save",
   "footer.power.title": "Powered by",
   "home.description": "Home description",
   "home.title": "Home"

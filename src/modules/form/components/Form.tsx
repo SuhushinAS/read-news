@@ -1,15 +1,20 @@
 import React from 'react';
-import {FieldValues, useForm} from 'react-hook-form';
+import {DeepPartial, FieldValues, FormProvider, useForm} from 'react-hook-form';
 import {SubmitHandler, UseFormProps} from 'react-hook-form/dist/types/form';
 
-type Props = UseFormProps & {
+type Props<Values extends FieldValues> = UseFormProps & {
   children: React.ReactNode;
-  onSubmit: SubmitHandler<FieldValues>;
+  defaultValues: DeepPartial<Values>;
+  onSubmit: SubmitHandler<Values>;
 };
 
-export const Form = (props: Props) => {
+export const Form = <Values extends FieldValues>(props: Props<Values>) => {
   const {children, defaultValues, onSubmit} = props;
-  const form = useForm({defaultValues});
+  const form = useForm<Values>({defaultValues});
 
-  return <form onSubmit={form.handleSubmit(onSubmit)}>{children}</form>;
+  return (
+    <FormProvider {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>{children}</form>
+    </FormProvider>
+  );
 };

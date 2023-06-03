@@ -1,12 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {PayloadAction} from '@reduxjs/toolkit/dist/createAction';
 import {getId, getNormalize} from 'modules/common/helpers/normalize';
-import {TApiResponse} from 'modules/common/types';
 import {feedIdKey} from 'modules/feed/constants';
-import {TFeed, TFeedBase, TFeedStore} from 'modules/feed/types';
+import {TFeed, TFeedStore} from 'modules/feed/types';
 
 export const getFeedId = getId(feedIdKey);
-export const getFeedEncodedId = (item: TFeedBase): TFeed => ({...item, id: btoa(item.src)});
 
 const normalizeFeed = getNormalize<TFeed>(getFeedId);
 
@@ -15,10 +13,14 @@ const initialState: TFeedStore = {
   list: [],
 };
 
-export const feed = createSlice({
+export const feedRedux = createSlice({
   initialState,
   name: 'feed',
   reducers: {
-    getList: (state, {payload}: PayloadAction<TApiResponse<TFeed[]>>) => ({...state, ...normalizeFeed(payload.data)}),
+    setItem: (state, {payload}: PayloadAction<TFeed>) => {
+      console.log(payload);
+      state.data[payload.id] = payload;
+    },
+    setList: (state, {payload}: PayloadAction<TFeed[]>) => ({...state, ...normalizeFeed(payload)}),
   },
 });

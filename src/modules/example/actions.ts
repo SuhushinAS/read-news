@@ -7,10 +7,10 @@ import {loadStop} from 'modules/status/actions';
 import {status} from 'modules/status/reducers';
 
 export const actionExampleGetList: TAction<TExample[]> = (dispatch) => {
-  dispatch(status.actions.loadStart(example.actions.getList.type));
+  dispatch(status.actions.loadStart(example.actions.setList.type));
 
   return api
     .requestLocal<TExample[]>('/api/v1/example.json')
-    .then(dispatchData(dispatch, example.actions.getList))
-    .then(loadStop(dispatch, example.actions.getList.type));
+    .then(dispatchData(dispatch, example.actions.setList))
+    .then(loadStop(dispatch, example.actions.setList.type));
 };

@@ -19,7 +19,7 @@ export const LocaleProvider = ({children}: TLocaleProps) => {
   }, [dispatch]);
 
   const language = useAppSelector(selectLocaleCurrent);
-  const loadMessages = useAppSelector(selectLoadItem(locale.actions.getMessages.type));
+  const loadMessages = useAppSelector(selectLoadItem(locale.actions.setMessages.type));
   const messages = useAppSelector(selectMessages(language));
 
   useEffect(() => {

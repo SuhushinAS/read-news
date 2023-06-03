@@ -11,16 +11,16 @@ export const locale = createSlice({
   initialState,
   name: 'locale',
   reducers: {
-    getList: (state, {payload}) => {
+    setCurrent: (state, {payload}) => {
+      state.current = payload;
+    },
+    setList: (state, {payload}) => {
       state.list = payload.list;
     },
-    getMessages: (state, {payload}) => {
+    setMessages: (state, {payload}) => {
       const {data, language} = payload;
 
       state.data[language] = data;
-    },
-    setCurrent: (state, {payload}) => {
-      state.current = payload;
     },
   },
 });

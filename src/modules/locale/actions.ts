@@ -13,12 +13,12 @@ import {Action} from 'redux';
 type TLocaleList = {list: string[]};
 
 export const actionLocaleGetList: TAction<TLocaleList> = (dispatch) => {
-  dispatch(status.actions.loadStart(locale.actions.getList.type));
+  dispatch(status.actions.loadStart(locale.actions.setList.type));
 
   return api
     .requestLocal<TLocaleList>('/api/v1/locale.json')
-    .then(dispatchData(dispatch, locale.actions.getList))
-    .then(loadStop(dispatch, locale.actions.getList.type));
+    .then(dispatchData(dispatch, locale.actions.setList))
+    .then(loadStop(dispatch, locale.actions.setList.type));
 };
 
 type TLocaleSetCurrent = (currentLocale: string) => (dispatch: TDispatch) => Action<string>;
@@ -43,14 +43,14 @@ type TMessages = {
 };
 
 export const actionLocaleGetMessages: TActionData<TMessages, string> = (language) => (dispatch) => {
-  dispatch(status.actions.loadStart(locale.actions.getMessages.type));
+  dispatch(status.actions.loadStart(locale.actions.setMessages.type));
 
   return api
     .requestLocal<TMessages>(`/api/v1/locale-${language}.json`)
     .then((data) => {
-      dispatchData(dispatch, locale.actions.getMessages)({data, language});
+      dispatchData(dispatch, locale.actions.setMessages)({data, language});
 
       return data;
     })
-    .then(loadStop(dispatch, locale.actions.getMessages.type));
+    .then(loadStop(dispatch, locale.actions.setMessages.type));
 };

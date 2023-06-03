@@ -18,7 +18,7 @@ export const example = createSlice({
   initialState,
   name: 'example',
   reducers: {
-    getList: (state, {payload}: PayloadAction<TApiResponse<TExample[]>>) => ({
+    setList: (state, {payload}: PayloadAction<TApiResponse<TExample[]>>) => ({
       ...state,
       ...normalizeExample(payload.data),
     }),
