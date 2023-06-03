@@ -1,9 +1,9 @@
 import {appPath} from 'app/constants';
 import {useAppSelector} from 'app/hooks';
-import {feedFields} from 'modules/feed/constants';
+import {feedFields, feedPaths} from 'modules/feed/constants';
 import {selectFeedItem} from 'modules/feed/selectors';
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {generatePath, Link} from 'react-router-dom';
 import './FeedList.less';
 
 type Props = {
@@ -17,9 +17,12 @@ export const FeedListItem = ({feedId}: Props) => {
     <tr>
       {feedFields.map((field) => (
         <td className="FeedList__Cell" key={field}>
-          <Link to={`${appPath.feed}/${feedId}`}>{`${feed[field]}`}</Link>
+          <Link to={`${appPath.feed}${generatePath(feedPaths.view, {feedId})}`}>{`${feed[field]}`}</Link>
         </td>
       ))}
+      <td className="FeedList__Cell">
+        <Link to={`${appPath.feed}${generatePath(feedPaths.edit, {feedId})}`}>e</Link>
+      </td>
     </tr>
   );
 };
