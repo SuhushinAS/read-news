@@ -30,6 +30,7 @@ export const FeedList = () => {
             </th>
           ))}
           <th className="FeedList__Cell">&nbsp;</th>
+          <th className="FeedList__Cell">&nbsp;</th>
         </tr>
       </thead>
       <tbody>

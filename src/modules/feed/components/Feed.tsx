@@ -1,5 +1,6 @@
 import {TDispatch} from 'app/types';
 import {actionFeedGetList} from 'modules/feed/actions';
+import {FeedPageCreate} from 'modules/feed/components/FeedPageCreate';
 import {FeedPageEdit} from 'modules/feed/components/FeedPageEdit';
 import {FeedPageItem} from 'modules/feed/components/FeedPageItem';
 import {FeedPageList} from 'modules/feed/components/FeedPageList';
@@ -20,6 +21,7 @@ export class FeedComponent extends React.Component<TProps> {
           <Route element={<FeedPageList />} path={feedPaths.list} />
           <Route element={<FeedPageItem />} path={feedPaths.view} />
           <Route element={<FeedPageEdit />} path={feedPaths.edit} />
+          <Route element={<FeedPageCreate />} path={feedPaths.create} />
         </Routes>
       </div>
     );

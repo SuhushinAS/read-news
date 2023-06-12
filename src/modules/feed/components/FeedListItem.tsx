@@ -1,8 +1,10 @@
 import {appPath} from 'app/constants';
-import {useAppSelector} from 'app/hooks';
+import {useAppDispatch, useAppSelector} from 'app/hooks';
+import {actionFeedDelete} from 'modules/feed/actions';
 import {feedFields, feedPaths} from 'modules/feed/constants';
 import {selectFeedItem} from 'modules/feed/selectors';
-import React from 'react';
+import {Button} from 'modules/form/components/Button';
+import React, {useCallback} from 'react';
 import {generatePath, Link} from 'react-router-dom';
 import './FeedList.less';
 
@@ -12,6 +14,9 @@ type Props = {
 
 export const FeedListItem = ({feedId}: Props) => {
   const feed = useAppSelector(selectFeedItem(feedId));
+  const dispatch = useAppDispatch();
+
+  const onDelete = useCallback(() => dispatch(actionFeedDelete(feedId)), [dispatch, feedId]);
 
   if ('undefined' === typeof feed) {
     return null;
@@ -25,7 +30,12 @@ export const FeedListItem = ({feedId}: Props) => {
         </td>
       ))}
       <td className="FeedList__Cell">
-        <Link to={`${appPath.feed}${generatePath(feedPaths.edit, {feedId})}`}>e</Link>
+        <Link to={`${appPath.feed}${generatePath(feedPaths.edit, {feedId})}`}>*</Link>
+      </td>
+      <td className="FeedList__Cell">
+        <Button onClick={onDelete} type="button">
+          -
+        </Button>
       </td>
     </tr>
   );
